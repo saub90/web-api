@@ -6,7 +6,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Register Artifact Custom Action
-              uses: saub90/register-artifact-action@main
+              uses: saub90/servicenow-devops-register-package@main
               with:
                 devops-integration-user-name: ${{ secrets.SN_DEVOPS_INT_USER }}
                 devops-integration-user-password: ${{ secrets.SN_DEVOPS_INT_PASSWORD }}
