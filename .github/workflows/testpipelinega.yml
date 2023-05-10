@@ -8,11 +8,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: ServiceNow Register Artifact
-        uses: ServiceNow/servicenow-devops-register-artifact@scratch_STRY55387369
+        uses: ServiceNow/servicenow-devops-register-artifact@v1.34.2
         with:
           devops-integration-user-name: ${{ secrets.SN_DEVOPS_USER }}
           devops-integration-user-password: ${{ secrets.SN_DEVOPS_PASSWORD }}
-          devops-integration-token: ${{ secrets.SN_DEVOPS_TOKEN }}
           instance-url: ${{ secrets.SN_INSTANCE_URL }}
           tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
           context-github: ${{ toJSON(github) }}
@@ -23,11 +22,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: ServiceNow Register Package
-        uses: ServiceNow/servicenow-devops-register-package@scratch_STRY55387551
+        uses: ServiceNow/servicenow-devops-register-package@v1.34.2
         with:
           devops-integration-user-name: ${{ secrets.SN_DEVOPS_USER }}
           devops-integration-user-password: ${{ secrets.SN_DEVOPS_PASSWORD }}
-          devops-integration-token: ${{ secrets.SN_DEVOPS_TOKEN }}
           instance-url: ${{ secrets.SN_INSTANCE_URL }}
           tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
           context-github: ${{ toJSON(github) }}
