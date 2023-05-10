@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: ServiceNow Register Artifact
-        uses: ServiceNow/servicenow-devops-register-artifact@scratch_STRY55387551
+        uses: ServiceNow/servicenow-devops-register-artifact@scratch_STRY55387369
         with:
           devops-integration-user-name: ${{ secrets.SN_DEVOPS_USER }}
           devops-integration-user-password: ${{ secrets.SN_DEVOPS_PASSWORD }}
