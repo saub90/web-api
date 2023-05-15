@@ -34,6 +34,8 @@ jobs:
 #           job-name: 'Register Package'
 #           artifacts: '[{"name": "com:customactiondemo","version": "1.${{ github.run_number }}","semanticVersion": "1.${{ github.run_number }}.0","repositoryName": "${{ github.repository }}"}]'
 #           package-name: 'registerpackage.war'
+- name: Maven Build
+  run: mvn clean install -DskipTests=true
 
 - name: Sonar Cloud Analysis
   if: success() # always() failure() success()
@@ -49,7 +51,7 @@ jobs:
       SONAR_PROJECT_KEY: ${{ secrets.SONAR_PROJECT_KEY }}
       SONAR_URL: ${{ secrets.SONAR_URL }}
       #SONAR_ORG_KEY: ${{ secrets.SONAR_ORG_KEY }}
-
+      
   sonarActionGetWorkflow:
     name: Sonar Action
     runs-on: ubuntu-latest
