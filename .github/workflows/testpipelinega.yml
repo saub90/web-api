@@ -51,3 +51,4 @@ jobs:
           job-name: 'Build'
           sonar-host-url: ${{ secrets.SONAR_URL }}
           sonar-project-key: ${{ secrets.SONAR_PROJECT_KEY }}
+          sonar-token: ${{ secrets.SONAR_TOKEN }}
