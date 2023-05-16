@@ -27,7 +27,9 @@ jobs:
       - name: ServiceNow Register Package
         uses: ServiceNow/servicenow-devops-register-package@scratch_STRY55387551
         with:
-          devops-integration-token: ${{ secrets.SN_DEVOPS_TOKENINVALID }}
+          #devops-integration-token: ${{ secrets.SN_DEVOPS_TOKENINVALID }}
+          devops-integration-user-name: ${{ secrets.SN_DEVOPS_USER12 }} 
+          devops-integration-user-password: ${{ secrets.SN_DEVOPS_PASSWORD }}
           instance-url: ${{ secrets.SN_INSTANCE_URL }}
           tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
           context-github: ${{ toJSON(github) }}
