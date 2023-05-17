@@ -3,12 +3,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  - name: Output Run ID
-    run: echo ${{ github.run_id }}
-  - name: Output Run Number
-    run: echo ${{ github.run_number }}
-  - name: Output Run Attempt
-    run: echo ${{ github.run_attempt }}
+  
 #  registerartifact:
 #     name: Register Artifact
 #     runs-on: ubuntu-latest
@@ -84,6 +79,12 @@ jobs:
       name: CustomChange
       runs-on: ubuntu-latest
       steps:
+        - name: Output Run ID
+          run: echo ${{ github.run_id }}
+        - name: Output Run Number
+          run: echo ${{ github.run_number }}
+        - name: Output Run Attempt
+          run: echo ${{ github.run_attempt }}
         - name: Custom Change
           uses: ServiceNow/servicenow-devops-change@v1.35.2
           with:
