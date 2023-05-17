@@ -126,7 +126,7 @@ jobs:
             run: echo "Change Request Number => ${{ steps.getChangeStatus.outputs.change-request-number }}"
           - env:
               OUTPUT1: ${{needs.getChangeStatus.outputs.change-request-number }}
-              run: echo "$OUTPUT1"
+            run: echo "$OUTPUT1"
           - name: ServiceNow Update Change
             uses: saub90/update-change@master
             with:
