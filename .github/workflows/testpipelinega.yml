@@ -100,8 +100,8 @@ jobs:
   getChangeStatus:
       name: getChangeStatus
       runs-on: ubuntu-latest
-#       outputs:
-#             output1: ${{ steps.getChangeStatus.outputs.change-request-number }}
+      outputs:
+            output1: ${{ steps.getChangeStatus.outputs.change-request-number }}
       steps:
             - name: Get Change Custom Action
               uses: roy-ca/getChangeAction@main
@@ -126,6 +126,7 @@ jobs:
             run: echo "Change Request Number => ${{ steps.getChangeStatus.outputs.change-request-number }}"
           - env:
               OUTPUT1: ${{needs.getChangeStatus.outputs.change-request-number }}
+              run: echo "$OUTPUT1"
           - name: ServiceNow Update Change
             uses: saub90/update-change@master
             with:
