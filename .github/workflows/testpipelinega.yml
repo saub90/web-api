@@ -109,7 +109,8 @@ jobs:
                 instance-url: ${{ secrets.SN_INSTANCE_URL }}
                 tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
                 context-github: ${{ toJSON(github) }}
-                change-details: '{"pipeline_name":"saub90/web-api/CustomActionGetWorkflow","stage_name":"getChangeStatus","build_number":${{github.run_id}}}'
+                #change-details: '{"pipeline_name":"saub90/web-api/CustomActionGetWorkflow","stage_name":"getChangeStatus","build_number":${{github.run_id}}}'
+                change-details: '{"pipeline_name":"saub90/web-api/CustomActionGetWorkflow","stage_name":"getChangeStatus","build_number":"5001220052"}'
             - name: Output of GetChangeDetails
               run: echo "The Status of Get Change Request Details => ${{ steps.get.outputs.change-request-number }}"
   UpdateChange:
