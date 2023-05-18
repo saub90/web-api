@@ -37,45 +37,45 @@ jobs:
           job-name: 'Register Package'
           artifacts: '[{"name": "com:customactiondemo","version": "1.${{ github.run_number }}","semanticVersion": "1.${{ github.run_number }}.0","repositoryName": "${{ github.repository }}"}]'
           package-name: 'registerpackage1.war'
- build:
-    name: Build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Maven Build
-        run: mvn clean install -DskipTests=true
+#  build:
+#     name: Build
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Maven Build
+#         run: mvn clean install -DskipTests=true
 
-      - name: Sonar Cloud Analysis
-        if: success() # always() failure() success()
-        run: >
-          mvn -B verify -DskipTests sonar:sonar
-          -Dsonar.projectKey=$SONAR_PROJECT_KEY
-          #-Dsonar.organization=$SONAR_ORG_KEY
-          -Dsonar.host.url=$SONAR_URL
-          -Dsonar.login=$SONAR_TOKEN
-        env:
-          GITHUB_TOKEN: ${{ secrets.GHP_TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_PROJECT_KEY: ${{ secrets.SONAR_PROJECT_KEY }}
-          SONAR_URL: ${{ secrets.SONAR_URL }}
-          #SONAR_ORG_KEY: ${{ secrets.SONAR_ORG_KEY }}
+#       - name: Sonar Cloud Analysis
+#         if: success() # always() failure() success()
+#         run: >
+#           mvn -B verify -DskipTests sonar:sonar
+#           -Dsonar.projectKey=$SONAR_PROJECT_KEY
+#           #-Dsonar.organization=$SONAR_ORG_KEY
+#           -Dsonar.host.url=$SONAR_URL
+#           -Dsonar.login=$SONAR_TOKEN
+#         env:
+#           GITHUB_TOKEN: ${{ secrets.GHP_TOKEN }}
+#           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+#           SONAR_PROJECT_KEY: ${{ secrets.SONAR_PROJECT_KEY }}
+#           SONAR_URL: ${{ secrets.SONAR_URL }}
+#           #SONAR_ORG_KEY: ${{ secrets.SONAR_ORG_KEY }}
     
- sonarActionGetWorkflow:
-    name: Sonar Action
-    runs-on: ubuntu-latest
-    steps:
-      - name: ServiceNow DevOps Sonar Scan Results
-        uses: ServiceNow/servicenow-devops-sonar@scratch_STRY55387793
-        with:
-          devops-integration-token: ${{ secrets.SN_DEVOPS_TOKEN }}
-          #devops-integration-user-name: ${{ secrets.SN_DEVOPS_USER }} 
-          #devops-integration-user-password: ${{ secrets.SN_DEVOPS_PASSWORD }}
-          instance-url: ${{ secrets.SN_INSTANCE_URL }}
-          tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
-          context-github: ${{ toJSON(github) }}
-          job-name: 'Build'
-          sonar-host-url: ${{ secrets.SONAR_URL }}
-          sonar-project-key: ${{ secrets.SONAR_PROJECT_KEY }}
-          sonar-token: ${{ secrets.SONAR_TOKEN }}
+#  sonarActionGetWorkflow:
+#     name: Sonar Action
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: ServiceNow DevOps Sonar Scan Results
+#         uses: ServiceNow/servicenow-devops-sonar@scratch_STRY55387793
+#         with:
+#           devops-integration-token: ${{ secrets.SN_DEVOPS_TOKEN }}
+#           #devops-integration-user-name: ${{ secrets.SN_DEVOPS_USER }} 
+#           #devops-integration-user-password: ${{ secrets.SN_DEVOPS_PASSWORD }}
+#           instance-url: ${{ secrets.SN_INSTANCE_URL }}
+#           tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
+#           context-github: ${{ toJSON(github) }}
+#           job-name: 'Build'
+#           sonar-host-url: ${{ secrets.SONAR_URL }}
+#           sonar-project-key: ${{ secrets.SONAR_PROJECT_KEY }}
+#           sonar-token: ${{ secrets.SONAR_TOKEN }}
 #   CustomChange:
 #       name: CustomChange
 #       runs-on: ubuntu-latest
