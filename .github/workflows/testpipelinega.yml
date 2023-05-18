@@ -124,7 +124,7 @@ jobs:
       needs: getChangeStatus
       steps: 
           - name: Output of getChangeStatus
-            run: echo "Change Request Number => ${{ steps.getChangeStatus.outputs.change-request-number }}"
+            run: echo "Change Request Number => ${{ needs.getChangeStatus.outputs.change-request-number }}"
           - env:
               OUTPUT1: ${{needs.getChangeStatus.outputs.change-request-number }}
             run: echo "$OUTPUT1"
