@@ -19,7 +19,7 @@ jobs:
           tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
           context-github: ${{ toJSON(github) }}
           job-name: 'Register Artifact'
-          artifacts: '[{"name": "com:customactiondemo1","version": "1.${{ github.run_number }}","semanticVersion": "1.${{ github.run_number }}.0","repositoryName": "${{ github.repository }}"}]'  
+          artifacts: '[{"name": "com:customactiondemotest","version": "1.${{ github.run_number }}","semanticVersion": "1.${{ github.run_number }}.0","repositoryName": "${{ github.repository }}"}]'  
  registerpackage:
     name: Register Package
     #needs: registerartifact
@@ -36,7 +36,7 @@ jobs:
           context-github: ${{ toJSON(github) }}
           job-name: 'Register Package'
           artifacts: '[{"name": "com:customactiondemo","version": "1.${{ github.run_number }}","semanticVersion": "1.${{ github.run_number }}.0","repositoryName": "${{ github.repository }}"}]'
-          package-name: 'registerpackage.war'
+          package-name: 'registerpackage1.war'
 #   build:
 #     name: Build
 #     runs-on: ubuntu-latest
