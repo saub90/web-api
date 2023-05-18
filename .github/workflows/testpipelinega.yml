@@ -127,9 +127,6 @@ jobs:
             run: echo "Change Request Number => ${{ needs.getChangeStatus.outputs.output1 }}"
           - env:
               OUTPUT1: ${{needs.getChangeStatus.outputs.output1 }}
-            #run: echo "$OUTPUT1"
-            run: echo "$GITHUB_OUTPUT"
-          - run: echo change-request-number [${{needs.getChangeStatus.outputs.output1}}]
           - name: ServiceNow Update Change
             uses: saub90/update-change@master
             with:
@@ -139,5 +136,5 @@ jobs:
               devops-integration-user-password: ${{ secrets.SN_DEVOPS_PASSWORD }}
               instance-url: ${{ secrets.SN_INSTANCE_URL }}
               context-github: ${{ toJSON(github) }}
-              change-request-number: $OUTPUT1
+              change-request-number: ${{ needs.getChangeStatus.outputs.output1 }}
               change-request-details: '{"state":"3","close_code":"successful_issues","close_notes": "Test results unsuccessful"}'  
