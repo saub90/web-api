@@ -9,8 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: ServiceNow Register Artifact
-        uses: ServiceNow/servicenow-devops-register-artifact@v1.34.2
-        #uses: ServiceNow/servicenow-devops-register-artifact@scratch_STRY55387369
+        #uses: ServiceNow/servicenow-devops-register-artifact@v1.34.2
+        uses: ServiceNow/servicenow-devops-register-artifact@scratch_STRY55387369
         with:
           #devops-integration-token: ${{ secrets.SN_DEVOPS_TOKEN }}
           devops-integration-user-name: ${{ secrets.SN_DEVOPS_USER }} 
@@ -98,7 +98,7 @@ jobs:
 #             change-request: '{"setCloseCode":"true","attributes":{"short_description":"FIRST CR Automated Software Deployment","description":"Automated Software Deployment.","assignment_group":"a715cd759f2002002920bde8132e7018","implementation_plan":"Software update is tested and results can be found in Test Summaries Tab.","backout_plan":"When software fails in production, the previous software release will be re-deployed.","test_plan":"Testing if the software was successfully deployed"}}'
 #             interval: '100'
 #             timeout: '3600'
-  getChangeStatus:
+ getChangeStatus:
       name: getChangeStatus
       runs-on: ubuntu-latest
       outputs:
@@ -118,7 +118,7 @@ jobs:
             - name: Output of GetChangeDetails
               run: echo "The Status of Get Change Request Details => ${{ steps.get.outputs.change-request-number }}"
             
-  UpdateChange:
+ UpdateChange:
       name: UpdateChange
       runs-on: ubuntu-latest
       needs: getChangeStatus
