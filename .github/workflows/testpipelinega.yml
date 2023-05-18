@@ -124,10 +124,12 @@ jobs:
       needs: getChangeStatus
       steps: 
           - name: Output of getChangeStatus
-            run: echo "Change Request Number => ${{ needs.getChangeStatus.outputs.change-request-number }}"
+            run: echo "Change Request Number => ${{ needs.getChangeStatus.outputs.output1 }}"
           - env:
-              OUTPUT1: ${{needs.getChangeStatus.outputs.change-request-number }}
-            run: echo "$OUTPUT1"
+              OUTPUT1: ${{needs.getChangeStatus.outputs.output1 }}
+            #run: echo "$OUTPUT1"
+            run: echo "$GITHUB_OUTPUT"
+          - run: echo change-request-number [${{needs.getChangeStatus.outputs.output1}}]
           - name: ServiceNow Update Change
             uses: saub90/update-change@master
             with:
