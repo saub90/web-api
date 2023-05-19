@@ -79,7 +79,7 @@ jobs:
                 instance-url: ${{ secrets.SN_INSTANCE_URL }}
                 context-github: ${{ toJSON(github) }}
                 #change-request-number: ${{ needs.getChangeStatus.outputs.output1 }}
-                change-request-number : "CHG0030004"
+                change-request-number : "CHG0030006"
                 change-request-details: '{"state":"3","close_code":"successful_issues","close_notes": "Test results unsuccessful"}'  
  UpdateChangebasicauth:
     name: UpdateChangeBasicAuth
@@ -101,7 +101,7 @@ jobs:
                 instance-url: ${{ secrets.SN_INSTANCE_URL }}
                 context-github: ${{ toJSON(github) }}
                 #change-request-number: ${{ needs.getChangeStatus.outputs.output1 }}
-                change-request-number : "CHG0030003"
+                change-request-number : "CHG0030006"
                 change-request-details: '{"state":"3","close_code":"successful_issues","close_notes": "Test results unsuccessful"}'  
    
 #  build:
