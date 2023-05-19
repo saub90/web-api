@@ -73,7 +73,7 @@ jobs:
             uses: saub90/update-change@master
             with:
                 tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
-                devops-integration-token: ${{ secrets.SN_DEVOPS_TOKEN1 }}
+                devops-integration-token: ${{ secrets.SN_DEVOPS_TOKEN }}
                 #devops-integration-user-name: ${{ secrets.SN_DEVOPS_USER }}
                 #devops-integration-user-password: ${{ secrets.SN_DEVOPS_PASSWORD }}
                 instance-url: ${{ secrets.SN_INSTANCE_URL }}
