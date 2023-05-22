@@ -143,28 +143,28 @@ jobs:
 #           sonar-host-url: ${{ secrets.SONAR_URL }}
 #           sonar-project-key: ${{ secrets.SONAR_PROJECT_KEY }}
 #           sonar-token: ${{ secrets.SONAR_TOKEN }}
-#   CustomChange:
-#       name: CustomChange
-#       runs-on: ubuntu-latest
-#       steps:
-#         - name: Output Run ID
-#           run: echo ${{ github.run_id }}
-#         - name: Output Run Number
-#           run: echo ${{ github.run_number }}
-#         - name: Output Run Attempt
-#           run: echo ${{ github.run_attempt }}
-#         - name: Custom Change
-#           uses: ServiceNow/servicenow-devops-change@v1.38.0
-#           with:
-#             devops-integration-user-name: ${{ secrets.SN_DEVOPS_USER }}
-#             devops-integration-user-password: ${{ secrets.SN_DEVOPS_PASSWORD }}
-#             instance-url: ${{ secrets.SN_INSTANCE_URL }}
-#             tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
-#             context-github: ${{ toJSON(github) }}
-#             job-name: 'CustomChange'
-#             change-request: '{"setCloseCode":"true","attributes":{"short_description":"FIRST CR Automated Software Deployment","description":"Automated Software Deployment.","assignment_group":"a715cd759f2002002920bde8132e7018","implementation_plan":"Software update is tested and results can be found in Test Summaries Tab.","backout_plan":"When software fails in production, the previous software release will be re-deployed.","test_plan":"Testing if the software was successfully deployed"}}'
-#             interval: '100'
-#             timeout: '3600'
+ CustomChange:
+      name: CustomChange
+      runs-on: ubuntu-latest
+      steps:
+        - name: Output Run ID
+          run: echo ${{ github.run_id }}
+        - name: Output Run Number
+          run: echo ${{ github.run_number }}
+        - name: Output Run Attempt
+          run: echo ${{ github.run_attempt }}
+        - name: Custom Change
+          uses: ServiceNow/servicenow-devops-change@v1.38.0
+          with:
+            devops-integration-user-name: ${{ secrets.SN_DEVOPS_USER }}
+            devops-integration-user-password: ${{ secrets.SN_DEVOPS_PASSWORD }}
+            instance-url: ${{ secrets.SN_INSTANCE_URL }}
+            tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
+            context-github: ${{ toJSON(github) }}
+            job-name: 'CustomChange'
+            change-request: '{"setCloseCode":"true","attributes":{"short_description":"FIRST CR Automated Software Deployment","description":"Automated Software Deployment.","assignment_group":"a715cd759f2002002920bde8132e7018","implementation_plan":"Software update is tested and results can be found in Test Summaries Tab.","backout_plan":"When software fails in production, the previous software release will be re-deployed.","test_plan":"Testing if the software was successfully deployed"}}'
+            interval: '100'
+            timeout: '3600'
 #  getChangeStatus:
 #     name: getChangeStatus
 #     runs-on: ubuntu-latest
