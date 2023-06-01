@@ -1,4 +1,4 @@
-replicaCount: 18
+replicaCount: 19
 
 mongo:
   dbport : 27018
