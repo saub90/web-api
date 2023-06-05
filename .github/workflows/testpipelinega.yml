@@ -47,7 +47,7 @@ jobs:
         - name: Output Run Attempt
           run: echo ${{ github.run_attempt }}
         - name: Custom Change
-          uses: ServiceNow/servicenow-devops-change@vdev
+          uses: ServiceNow/servicenow-devops-change@dev
           with:
             devops-integration-user-name: ${{ secrets.SN_DEVOPS_USER }}
             devops-integration-user-password: ${{ secrets.SN_DEVOPS_PASSWORD }}
@@ -68,7 +68,7 @@ jobs:
             uses: roy-ca/getChangeAction@main
             id: getChange
             with:
-                #devops-integration-token: ${{ secrets.SN_DEVOPS_TOKEN1 }}
+                #devops-integration-token: ${{ secrets.SN_DEVOPS_TOKEN }}
                 devops-integration-user-name: ${{ secrets.SN_DEVOPS_USER }}
                 devops-integration-user-password: ${{ secrets.SN_DEVOPS_PASSWORD }}
                 instance-url: ${{ secrets.SN_INSTANCE_URL }}
