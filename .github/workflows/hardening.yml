@@ -21,7 +21,7 @@ jobs:
           artifacts: '[{"name": "com:customactiondemotest","version": "1.${{ github.run_number }}","semanticVersion": "1.${{ github.run_number }}.0","repositoryName": "${{ github.repository }}"}]'  
  registerpackage:
     name: Register Package
-    #needs: registerartifact
+    needs: registerartifact
     runs-on: ubuntu-latest
     steps:
       - name: ServiceNow Register Package
