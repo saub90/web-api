@@ -34,6 +34,6 @@ jobs:
           tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
           context-github: ${{ toJSON(github) }}
           job-name: 'Register Package'
-          artifacts: '[{"name": "com:hardening1.39","version": "1.10","semanticVersion": "1.10.0","repositoryName": "${{ github.repository }}"}]'
+          artifacts: '[{"name": "com:hardening1.39","version": "1.12","semanticVersion": "1.12.0","repositoryName": "${{ github.repository }}"}]'
           #artifacts: '[{"name": "com:hardening1.39","version": "1.${{ github.run_number }}","semanticVersion": "1.${{ github.run_number }}.0","repositoryName": "${{ github.repository }}"}]'
           package-name: 'hardening1.39.war'
